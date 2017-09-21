@@ -1,161 +1,157 @@
-"
-" vimrc  from  
-"
-set nocompatible               " be iMproved
-
-"-------------------
-"  Global
-"------------------ 
+"===============================================
+" Common
+"===============================================
+set nocompatible
+"set autoread
+"set autowrite
+"set autochdir
+"set autoindent
+"set smartindent
+"set paste
+"set confirm
+"set wildmenu
+set visualbell
+set hlsearch
+set incsearch
 set expandtab
-set shiftwidth=4
-set softtabstop=4
 set tabstop=4
 set backspace=2
-set viminfo='10,\"100,:5000,%,n~/.viminfo
-set hlsearch
-set foldmethod=marker
-set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
+set shiftwidth=4
+set softtabstop=4
+set encoding=utf8
+"===============================================
+
+
+"===============================================
+" Syntax
+"===============================================
 syntax enable
 syntax on
-let mapleader = ","       "Set mapleader
+"===============================================
 
-"-------------------
-" vim plugin manage : vundle  
-"------------------ 
-filetype off                   " required!
+
+"===============================================
+" Folding
+"===============================================
+set foldenable
+set fdm=marker
+"set fdm=syntax
+"       manual : Folds are created manually.
+"       indent : Lines with equal indent form a fold.
+"       expr   : ‘foldexpr’ gives the fold level of a line.
+"       marker : Markers are used to specify folds.
+"       syntax : Syntax highlighting items specify folds.
+"       diff   : Fold text that is not changed.
+"set foldclose=all
+"use space to folden
+"nnoremap <space> @=((foldclosed(line(‘.’)) < 0) ? ‘zc’ : ‘zo’)<CR>
+"set foldopen-=undo
+"set foldopen-=search
+"===============================================
+
+
+"===============================================
+" Vundle
+"===============================================
+filetype off                      " required
+" Set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+"call vundle#begin()
 
-" let Vundle manage Vundle
+" Alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" Let Vundle manage Vundle, required
 Bundle "gmarik/vundle"
 
-" Syntax highlight
-Bundle "cucumber.zip"
-Bundle "Markdown"
+" Vim-go
+Bundle 'fatih/vim-go'
+Bundle 'Blackrush/vim-gocode'
+"Bundle 'Valloric/YouCompleteMe'
 
 " Utility
+Bundle "scrooloose/nerdtree"
+Bundle "Markdown"
 Bundle "SuperTab"
-Bundle "file-line"
-"Bundle "Align"
-Bundle "Mark"
-Bundle "https://github.com/Lokaltog/vim-powerline.git"
-"Bundle "php-doc"
-"Bundle "Xdebug"
 Bundle "jsbeautify"
-
-" Command-T
 Bundle "git://git.wincent.com/command-t.git"
-let g:CommandTMatchWindowAtTop=1 " show window at top
+Bundle "https://github.com/Lokaltog/vim-powerline.git"
 
 " Other
-Bundle "vimwiki"
-"Bundle "The-NERD-tree"
-Bundle "taglist.vim"
-"Bundle "Conque-Shell"
 Bundle "CmdlineComplete"
-
-Bundle "JSON.vim"
-"Bundle "vim-scripts/calendar.vim--Matsumoto"
-Bundle "vktheming"
-"Bundle "project.vim"
-"Bundle "ProjectTag"
-"Bundle "AutoComplPop"
-"Bundle "minibufexplorerpp"
-"Bundle "git://github.com/vim-scripts/calendar.vim--Matsumoto.git"
-
-" vim-go
-Bundle 'cespare/vim-golang'
-" vim go dev env
-Bundle 'fatih/vim-go' 
-" auto complete
-Bundle 'Blackrush/vim-gocode'
+Bundle "taglist.vim"
+"Bundle "vimwiki"
+"Bundle "Xdebug"
 
 " Brief help
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleSearch(!) pig - search(or refresh cache first) for pig
 " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 "
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
 "
-filetype plugin indent on     " required!
-"======================End vundle=========================
+"All of your Plugins must be added before the following line
+call vundle#end()               " required
+filetype plugin indent on       " required
+"===============================================
 
-"-----------------
-"minibuffer
-"-----------------
-let g:miniBufExplMapWindowNavArrows = 1
 
-"-----------------
-"vimwiki
-"-----------------
-let g:vimwiki_list = [ {"path": "~/.wiki/notes/vimwiki/", "path_html": "~/wiki/", "syntax":"markdown","ext": ".txt"}]
-" 标记为完成的 checklist 项目会有特别的颜色
-let g:vimwiki_hl_cb_checked = 1
-" 是否开启按语法折叠  会让文件比较慢
-let g:vimwiki_folding = 0
-let g:vimwiki_fold_lists = 0
+"===============================================
+" NERDTree
+"===============================================
+map <F4> :NERDTreeMirror<CR>
+map <F4> :NERDTreeToggle<CR>
+nnoremap <silent> <F5> :NERDTree<CR>
+"===============================================
 
-" 是否在计算字串长度时用特别考虑中文字符
-let g:vimwiki_CJK_length = 1
-" 支援html标记符
-let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
 
-let g:vimwiki_menu = ''
-let g:vimwiki_use_calendar = 0
-let g:vimwiki_hl_headers = 1
-
-"======================End vimwiki=========================
-
-"-----------------
-" PHP
-"-----------------
-" php doc 插件
-"source ~/.vim/plugin/php-doc.vim
-inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
-nnoremap <C-P> :call PhpDocSingle()<CR>
-vnoremap <C-P> :call PhpDocRange()<CR>
-
-"-----------------
-" Power Line
-"-----------------
+"===============================================
+" PowerLine
+"===============================================
 set laststatus=2
-set t_Co=256
 let g:Powerline_symbols = 'unicode'
-set encoding=utf8
+"===============================================
 
 
-"------------------
-"" colorscheme solarized ...
-"------------------
+"===============================================
+" CommandT
+"===============================================
+let g:CommandTMatchWindowAtTop=1 " show window at top
+"===============================================
+
+
+"===============================================
+" Taglist 
+"===============================================
+let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
+let Tlist_WinWidth=30
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Use_Right_Window=1
+noremap <F6> :!/usr/local/bin/ctags -R<CR>
+noremap <F10> :TlistToggle<CR>
+"===============================================
+
+
+"===============================================
+" Colorscheme
+"===============================================
+set t_Co=256
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans = 1
 colorscheme solarized
-"colorscheme desert256
-"colorscheme manuscript  "GUI only
+"===============================================
 
-"------------------
-""GCC
-"------------------
-:nmap <C-c><C-c> :!gcc -Wall % -o %:r.out<CR>
 
-"----------------
-"custom 
-"----------------
-map <C-L> :!php -l %<CR>
-map <C-I> :!echo %:p >> ~/er_ide<CR>
-function! PHPCopy()
-    call setline(line("."),"/**")
-    call append(line(".")," * @filename ".expand("%"))
-    call append(line(".")+1," * @author alan@alan.com>")
-    call append(line(".")+2," * @link http://www.alan.com/" )
-    call append(line(".")+3," * @license http://www.zend.com/license/3_0.txt PHP License 3.0")
-    call append(line(".")+4," * @date " . strftime("%Y-%m-%d %T"))
-    call append(line(".")+5," * @version $Id$ ")
-    call append(line(".")+6," */")
-endfun
-" set tags=./tags,../tags,../../tags,../../../tags,../../../../tags,../../../../../tags,../../../../../../tags
-
-imap <F1> :call PHPCopy*()<CR>
+"===============================================
+" O
+"===============================================
+set foldmethod=marker
+set viminfo='10,\"100,:5000,%,n~/.viminfo
+set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
+let mapleader = ","       "Set mapleader
+"===============================================
