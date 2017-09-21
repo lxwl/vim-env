@@ -124,7 +124,7 @@ let g:CommandTMatchWindowAtTop=1 " show window at top
 
 
 "===============================================
-" Taglist 
+" Taglist
 "===============================================
 let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
 let Tlist_WinWidth=30
