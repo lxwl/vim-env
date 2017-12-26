@@ -55,15 +55,17 @@ set fdm=marker
 "===============================================
 filetype off                      " required
 " Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-"call vundle#begin()
+"set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#rc()
+call vundle#begin()
 
 " Alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " Let Vundle manage Vundle, required
-Bundle "gmarik/vundle"
+"Bundle "gmarik/vundle"
+Plugin 'VundleVim/Vundle.vim'
 
 " Vim-go
 Bundle 'fatih/vim-go'
