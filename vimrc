@@ -69,7 +69,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Vim-go
 Bundle 'fatih/vim-go'
-Bundle 'Blackrush/vim-gocode'
+"Bundle 'Blackrush/vim-gocode'
 "Bundle 'Valloric/YouCompleteMe'
 
 " Utility
@@ -77,12 +77,12 @@ Bundle "scrooloose/nerdtree"
 Bundle "Markdown"
 Bundle "SuperTab"
 Bundle "jsbeautify"
-Bundle "git://git.wincent.com/command-t.git"
-Bundle "https://github.com/Lokaltog/vim-powerline.git"
+"Bundle "git://git.wincent.com/command-t.git"
+"Bundle "https://github.com/Lokaltog/vim-powerline.git"
 
 " Other
-Bundle "CmdlineComplete"
-Bundle "taglist.vim"
+"Bundle "CmdlineComplete"
+"Bundle "taglist.vim"
 "Bundle "vimwiki"
 "Bundle "Xdebug"
 
@@ -100,6 +100,16 @@ call vundle#end()               " required
 filetype plugin indent on       " required
 "===============================================
 
+"===============================================
+" Vim-go
+"===============================================
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+"===============================================
 
 "===============================================
 " NERDTree
@@ -145,7 +155,8 @@ set t_Co=256
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans = 1
-colorscheme solarized
+"colorscheme solarized
+colorscheme darkblue
 "===============================================
 
 
