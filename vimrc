@@ -68,9 +68,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Vim-go
-Bundle 'fatih/vim-go'
+Plugin 'fatih/vim-go'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Tagbar'
 "Bundle 'Blackrush/vim-gocode'
-"Bundle 'Valloric/YouCompleteMe'
 
 " Utility
 Bundle "scrooloose/nerdtree"
