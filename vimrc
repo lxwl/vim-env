@@ -55,32 +55,35 @@ set fdm=marker
 "===============================================
 filetype off                      " required
 " Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-"call vundle#begin()
+"set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#rc()
+call vundle#begin()
 
 " Alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " Let Vundle manage Vundle, required
-Bundle "gmarik/vundle"
+"Bundle "gmarik/vundle"
+Plugin 'VundleVim/Vundle.vim'
 
 " Vim-go
-Bundle 'fatih/vim-go'
-Bundle 'Blackrush/vim-gocode'
-"Bundle 'Valloric/YouCompleteMe'
+Plugin 'fatih/vim-go'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Tagbar'
+"Bundle 'Blackrush/vim-gocode'
 
 " Utility
 Bundle "scrooloose/nerdtree"
 Bundle "Markdown"
 Bundle "SuperTab"
 Bundle "jsbeautify"
-Bundle "git://git.wincent.com/command-t.git"
-Bundle "https://github.com/Lokaltog/vim-powerline.git"
+"Bundle "git://git.wincent.com/command-t.git"
+"Bundle "https://github.com/Lokaltog/vim-powerline.git"
 
 " Other
-Bundle "CmdlineComplete"
-Bundle "taglist.vim"
+"Bundle "CmdlineComplete"
+"Bundle "taglist.vim"
 "Bundle "vimwiki"
 "Bundle "Xdebug"
 
@@ -98,6 +101,40 @@ call vundle#end()               " required
 filetype plugin indent on       " required
 "===============================================
 
+"===============================================
+" Mapleader
+"===============================================
+" set mapleader
+let mapleader = ","
+"===============================================
+
+
+"===============================================
+" Vim-go
+"===============================================
+" vim-go custom mappings
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>e <Plug>(go-rename)
+
+" vim-go settings
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+"===============================================
 
 "===============================================
 " NERDTree
@@ -143,7 +180,8 @@ set t_Co=256
 set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans = 1
-colorscheme solarized
+"colorscheme solarized
+colorscheme darkblue
 "===============================================
 
 
@@ -153,5 +191,4 @@ colorscheme solarized
 set foldmethod=marker
 set viminfo='10,\"100,:5000,%,n~/.viminfo
 set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
-let mapleader = ","       "Set mapleader
 "===============================================
