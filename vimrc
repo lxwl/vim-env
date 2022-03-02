@@ -85,7 +85,10 @@ Bundle "jsbeautify"
 Plugin 'vim-airline/vim-airline'
 " Optional, Airline theme
 Plugin 'vim-airline/vim-airline-themes'
-"
+
+
+" Text search
+Plugin 'kien/ctrlp.vim'
 
 " Other
 "Bundle "CmdlineComplete"
@@ -193,6 +196,8 @@ nmap <silent> <F8> :TagbarToggle<CR>
 " Vim airline
 "===============================================
 let g:airline_theme="bubblegum"
+" ctrlp.vim
+let g:airline_cmd='CtrlP' "ctrl + p open
 "===============================================
 
 
