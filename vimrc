@@ -81,6 +81,12 @@ Bundle "jsbeautify"
 "Bundle "git://git.wincent.com/command-t.git"
 "Bundle "https://github.com/Lokaltog/vim-powerline.git"
 
+" Vim airline
+Plugin 'vim-airline/vim-airline'
+" Optional, Airline theme
+Plugin 'vim-airline/vim-airline-themes'
+"
+
 " Other
 "Bundle "CmdlineComplete"
 "Bundle "taglist.vim"
@@ -127,7 +133,6 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 
 " vim-go settings
-let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
@@ -139,6 +144,7 @@ let g:go_highlight_extra_types = 1
 "===============================================
 " NERDTree
 "===============================================
+"autocmd vimenter * NERDTree    " auto open
 map <F4> :NERDTreeMirror<CR>
 map <F4> :NERDTreeToggle<CR>
 nnoremap <silent> <F5> :NERDTree<CR>
@@ -168,18 +174,35 @@ let Tlist_WinWidth=30
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Use_Right_Window=1
-noremap <F6> :!/usr/local/bin/ctags -R<CR>
+noremap <F9> :!/usr/local/bin/ctags -R<CR>
 noremap <F10> :TlistToggle<CR>
+"===============================================
+
+
+
+"===============================================
+" Tagbar
+"===============================================
+"
+nmap <silent> <F8> :TagbarToggle<CR>
+"===============================================
+
+
+
+"===============================================
+" Vim airline
+"===============================================
+let g:airline_theme="bubblegum"
 "===============================================
 
 
 "===============================================
 " Colorscheme
 "===============================================
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans = 1
+"set t_Co=256
+"set background=dark
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans = 1
 "colorscheme solarized
 colorscheme darkblue
 "===============================================
@@ -191,4 +214,5 @@ colorscheme darkblue
 set foldmethod=marker
 set viminfo='10,\"100,:5000,%,n~/.viminfo
 set errorformat+=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\"
+imap <F6> <C-x><C-o>
 "===============================================
